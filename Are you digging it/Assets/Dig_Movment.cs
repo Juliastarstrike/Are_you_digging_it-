@@ -10,7 +10,8 @@ public class Dig_Movment : MonoBehaviour
         {
             Debug.Log("test collison");
 
-          Destroy(other.gameObject);
+            Destroy(other.gameObject);
+            Score_manager.instance.addPoint();
         }
     } 
 }

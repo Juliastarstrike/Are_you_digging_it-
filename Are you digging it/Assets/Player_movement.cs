@@ -20,13 +20,24 @@ public class Player_movement : MonoBehaviour
         move.y = joystick.Vertical;
 
         drillspeed = 5;
+        
+        //limit drilldirection so you cant dig up
         if (move.y > 0)
         {
             drillspeed = 0;
         }
         
-        if (move.x > 0)
+        //facing right direction
+        if (facingRight == true && move.x < 0)
         {
+            facingRight = false;
+            rb.transform.Rotate(0f, 0.0f, 90.0f);
+            Flip();
+        }
+        if (facingRight == false && move.x > 0)
+        {
+            facingRight = true;
+            rb.transform.Rotate(0f, 0.0f, -90.0f);
             Flip();
         }
 
@@ -42,7 +53,7 @@ public class Player_movement : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
-        facingRight = !facingRight;
+        //facingRight = !facingRight;
     }
 
 }
