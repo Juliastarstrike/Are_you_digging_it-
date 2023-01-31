@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,18 @@ using UnityEngine;
 
 public class Save_And_Load_Script : MonoBehaviour
 {
+    [Serializable]
+    class PlayerSaveData
+    {
+        public string Name;
+        public float ColorHUE;
+        public bool Hidden;
+        public Vector3 Position;
+    }
+    //____________________________________________________________________________________
     public Score_manager score;
     public GameObject canvas;
+    
     
     void Start()
     {
@@ -31,4 +42,5 @@ public class Save_And_Load_Script : MonoBehaviour
         
         score_manager.score = PlayerPrefs.GetInt("Destroyd_blocks");
     }
+
 }
