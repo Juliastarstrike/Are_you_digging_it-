@@ -8,10 +8,7 @@ public class Camera_follow_player : MonoBehaviour
     public float yOffset =1f;
     public float xOffset =1f;
     public Transform target;
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
         Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);

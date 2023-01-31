@@ -41,7 +41,6 @@ public class Player_movement : MonoBehaviour
             Flip();
         }
 
-
     }
     private void FixedUpdate() 
     {
@@ -53,7 +52,6 @@ public class Player_movement : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
-        //facingRight = !facingRight;
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenerateWorld : MonoBehaviour
 {
     public GameObject dirtBlock;
+    public GameObject goldblock;
     public Vector3 lineSpawnBlock = new Vector3(0, 0, 0);
 
     ////////////////////////////
@@ -14,8 +15,10 @@ public class GenerateWorld : MonoBehaviour
     public float end_y_of_world_pos = 5;
     public float start_x_of_world_pos = -2.75f;
     public float end_x_of_world_pos = 2.95f;
-    
+    public int Showsore = Random.Range(1, 3);
     public float xled;
+
+
 
     void Start()
     {
@@ -33,8 +36,10 @@ public class GenerateWorld : MonoBehaviour
             for (float x = start_x_of_world_pos; x < end_x_of_world_pos; x = x + 0.16f) 
             {
              lineSpawnBlock = new Vector3(x, -y, 0);
+             
              Instantiate(dirtBlock, lineSpawnBlock, Quaternion.identity);
              xled = x;
+             Showsore = Random.Range(1, 3);
             }
             lineSpawnBlock = new Vector3(xled, -y, 0);
         }
