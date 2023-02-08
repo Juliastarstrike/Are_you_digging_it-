@@ -45,7 +45,7 @@ public class Save_And_Load_Script : MonoBehaviour
         
         Debug.Log("hur går det?");
         //Put our data in our object
-        saveData.Name = "Alva";
+        saveData.Name = "Alva-super";
         saveData.ColorHUE = 0.5f;
         saveData.Hidden = false;
         saveData.Position = transform.position;
