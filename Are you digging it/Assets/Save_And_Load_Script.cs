@@ -5,20 +5,17 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 
-    [Serializable] public class PlayerSaveData : MonoBehaviour
+    [Serializable] public class PlayerSaveData //: MonoBehaviour
 {
     public string Name;
     public float ColorHUE;
     public bool Hidden;
     public Vector3 Position;
+    public int Score;
 }
 public class Save_And_Load_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    public Score_manager score;
     public GameObject canvas;
-    
     void Start()
     {
         //blocks = GetComponent<"Score_manager">;
@@ -35,17 +32,16 @@ public class Save_And_Load_Script : MonoBehaviour
     public void Save()
     {
         PlayerSaveData saveData = new PlayerSaveData();
-        GameObject canvas = GameObject.Find("Canvas");
-        Score_manager score_manager = canvas.GetComponent<Score_manager>();
-        //PlayerPrefs.SetInt("Destroyd_blocks", score_manager.score);
+         Score_manager score_manager = canvas.GetComponent<Score_manager>();
     
         //Create our saveData object
         //Put our data in our object
-        //saveData.Score = 0;
+        saveData.Score = score_manager.score;
         saveData.Name = "Julia";
         saveData.ColorHUE = 0.5f;
         saveData.Hidden = true;
         saveData.Position = transform.position;
+        //score_manager.score = saveData.Score;
 
         //Convert saveData object to JSON
         string jsonString = JsonUtility.ToJson(saveData);
@@ -83,13 +79,18 @@ public string Load(string fileName)
     {
         // Read the entire file and return the result. This assumes that we've written the
         // file in UTF-8
-        Debug.Log("kommer vi in hi?");
         return stream.ReadToEnd();
     }
 }
 
 public void Load()
 {
+Load("Are_you_digging_it_database.json");
 
+PlayerSaveData saveData = JsonUtility.FromJson<PlayerSaveData>(Load("Are_you_digging_it_database.json"));
+Score_manager score_manager = canvas.GetComponent<Score_manager>();
+score_manager.score = saveData.Score;
+Debug.Log(saveData.Score);
+        
 }
 }

@@ -16,7 +16,6 @@ public class Score_manager : MonoBehaviour
     void Start()
     {
        scoreText.text = "Blocks destroyed: " + score.ToString();
-       
     }
 
     public void addPoint()
