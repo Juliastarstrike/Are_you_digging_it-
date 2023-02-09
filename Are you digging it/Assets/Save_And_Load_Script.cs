@@ -34,37 +34,27 @@ public class Save_And_Load_Script : MonoBehaviour
     }
     public void Save()
     {
-        Debug.Log("funkar detta?");
         PlayerSaveData saveData = new PlayerSaveData();
         GameObject canvas = GameObject.Find("Canvas");
         Score_manager score_manager = canvas.GetComponent<Score_manager>();
         //PlayerPrefs.SetInt("Destroyd_blocks", score_manager.score);
     
-
         //Create our saveData object
-        
-        Debug.Log("hur går det?");
         //Put our data in our object
-        saveData.Name = "Alva-super";
+        //saveData.Score = 0;
+        saveData.Name = "Julia";
         saveData.ColorHUE = 0.5f;
-        saveData.Hidden = false;
+        saveData.Hidden = true;
         saveData.Position = transform.position;
 
         //Convert saveData object to JSON
         string jsonString = JsonUtility.ToJson(saveData);
 
         //For now just save it using PlayerPrefs
-        PlayerPrefs.SetString("PlayerSaveData", jsonString);
-        SaveToFile("pelle.json",jsonString);
-        Debug.Log("hej hop");
+        //PlayerPrefs.SetString("PlayerSaveData", jsonString);
+        SaveToFile("Are_you_digging_it_database.json",jsonString);
     }
-    public void Load()
-    {
-
-        GameObject canvas = GameObject.Find("Canvas");
-        Score_manager score_manager = canvas.GetComponent<Score_manager>();
-        score_manager.score = PlayerPrefs.GetInt("Destroyd_blocks");
-    }
+    //Return the content of the file in a string
 
     public void SaveToFile(string fileName, string jsonString)
 {
@@ -86,7 +76,20 @@ public class Save_And_Load_Script : MonoBehaviour
         // the scope - this is VERY important
     }
 }
-
+public string Load(string fileName)
+{
+    // Open a stream for the supplied file name as a text file
+    using (var stream = File.OpenText(fileName))
+    {
+        // Read the entire file and return the result. This assumes that we've written the
+        // file in UTF-8
+        Debug.Log("kommer vi in hi?");
+        return stream.ReadToEnd();
+    }
 }
 
+public void Load()
+{
 
+}
+}
