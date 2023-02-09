@@ -89,8 +89,9 @@ Load("Are_you_digging_it_database.json");
 
 PlayerSaveData saveData = JsonUtility.FromJson<PlayerSaveData>(Load("Are_you_digging_it_database.json"));
 Score_manager score_manager = canvas.GetComponent<Score_manager>();
-score_manager.score = saveData.Score;
 Debug.Log(saveData.Score);
+
+score_manager.score = saveData.Score;
         
 }
 }

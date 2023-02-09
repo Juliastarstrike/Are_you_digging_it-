@@ -1735,7 +1735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926be3f27b1ef041906f79d374cee50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
   canvas: {fileID: 559626821}
 --- !u!114 &559626828
 MonoBehaviour:
@@ -1749,10 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68294f1766d90454d82553322b7483bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  ColorHUE: 0
-  Hidden: 0
-  Position: {x: 0, y: 0, z: 0}
 --- !u!1 &577605644
 GameObject:
   m_ObjectHideFlags: 0

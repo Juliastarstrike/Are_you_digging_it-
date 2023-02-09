@@ -40,8 +40,6 @@ public class Player_movement : MonoBehaviour
             rb.transform.Rotate(0f, 0.0f, -90.0f);
             Flip();
         }
-
-
     }
     private void FixedUpdate() 
     {
