@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://fir-are-you-digging-it-default-rtdb.europe-west1.firebasedatabase.app</string>
+  <string name="gcm_defaultSenderId" translatable="false">171361229550</string>
+  <string name="google_storage_bucket" translatable="false">fir-are-you-digging-it.appspot.com</string>
+  <string name="project_id" translatable="false">fir-are-you-digging-it</string>
+  <string name="google_api_key" translatable="false">AIzaSyBLGLGg5ZABh8sZIIssH5uI6zqG4DCvv38</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBLGLGg5ZABh8sZIIssH5uI6zqG4DCvv38</string>
+  <string name="google_app_id" translatable="false">1:171361229550:android:fe25b029a67c8e2677b1ff</string>
+  <string name="default_web_client_id" translatable="false">171361229550-c360ic3g44cncv8gdvr8r9v8ti06u23h.apps.googleusercontent.com</string>
+</resources>
