@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "171361229550",
+    "firebase_url": "https://fir-are-you-digging-it-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fir-are-you-digging-it",
+    "storage_bucket": "fir-are-you-digging-it.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171361229550:android:fe25b029a67c8e2677b1ff",
+        "android_client_info": {
+          "package_name": "com.Yrgo.Areyoudiggingit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171361229550-c360ic3g44cncv8gdvr8r9v8ti06u23h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLGLGg5ZABh8sZIIssH5uI6zqG4DCvv38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171361229550-c360ic3g44cncv8gdvr8r9v8ti06u23h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
