@@ -9,15 +9,16 @@ using Firebase.Extensions;
 
 public class SignIn : MonoBehaviour
 {
-    InputField email;
-    InputField password;
-    TextMeshPro status;
+    public TMP_InputField email;
+    public TMP_InputField password;
+    public TextMeshProUGUI status;
+    public Button playButton;
 
     FirebaseAuth auth;
 
     void Start()
     {
-                FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             if (task.Exception != null)
                 Debug.LogError(task.Exception);
@@ -28,7 +29,26 @@ public class SignIn : MonoBehaviour
 
     public void SignInputButton()
     {
+        SignInFirebase(email.text, password.text);
+    }
+    private void SignInFirebase(string email, string password)
+    {
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.Exception != null)
+            {
+                Debug.LogWarning(task.Exception);
+            }
+            else
+            {
+                FirebaseUser newUser = task.Result;
+                Debug.LogFormat("User signed in successfully: {0} ({1})",
+                newUser.DisplayName, newUser.UserId);
+                status.text = newUser.Email + "is sign in";
 
+                playButton.interactable = true;
+            }
+        });
     }
     public void RegisterButton()
     {
@@ -38,6 +58,7 @@ public class SignIn : MonoBehaviour
     private void RegisterNewUser(string email, string password)
     {
         Debug.Log("Starting Registration");
+        status.text = "Starting Registration";
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
         {
             if (task.Exception != null)
@@ -49,7 +70,14 @@ public class SignIn : MonoBehaviour
                 FirebaseUser newUser = task.Result;
                 Debug.LogFormat("User Registerd: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
+
+                playButton.interactable = true;
             }
         });
+    }
+
+    public void DebugLogIn(int number)
+    {
+        SignInFirebase("test" + number + "@test.test", "password");
     }
 }
