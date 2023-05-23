@@ -6,6 +6,7 @@ using TMPro;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+using UnityEngine.SceneManagement;
 
 public class SignIn : MonoBehaviour
 {
@@ -135,5 +136,10 @@ public class SignIn : MonoBehaviour
     public void DebugLogIn(int number)
     {
         SignInFirebase("test" + number + "@test.test", "password");
+    }
+
+    public void Play()
+    {
+         SceneManager.LoadScene("Game");
     }
 }
