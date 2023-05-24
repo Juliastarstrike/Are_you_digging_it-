@@ -120,6 +120,7 @@ public class SignIn : MonoBehaviour
         {
             if (task.Exception != null)
             {
+                Debug.Log("are we in here?");
                 Debug.LogWarning(task.Exception);
             }
             else
