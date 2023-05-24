@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SigIn.unity
     guid: e3d16c817fcf71043a6d10add15e2849
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 937fe36c6aa82af448f4c65794951143
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

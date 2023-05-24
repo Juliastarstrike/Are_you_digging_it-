@@ -59,10 +59,16 @@ public class SignIn : MonoBehaviour
                 //User is logged in
                 //the program will remember user
                 Debug.Log(auth.CurrentUser.Email + " is logged in.");
-                playButton.interactable = true;
+                UserIsSignedIn_LoadGame();
             }
         });
 
+    }
+
+    private void UserIsSignedIn_LoadGame()
+    {
+        playButton.interactable = true;
+        SceneManager.LoadScene("Cutscene");
     }
 
     private void AnonymouseSignIn()
@@ -103,7 +109,7 @@ public class SignIn : MonoBehaviour
                 newUser.DisplayName, newUser.UserId);
                 status.text = newUser.Email + "is sign in";
 
-                playButton.interactable = true;
+                SceneManager.LoadScene("Cutscene");
             }
         });
     }
@@ -137,10 +143,5 @@ public class SignIn : MonoBehaviour
     public void DebugLogIn(int number)
     {
         SignInFirebase("test" + number + "@test.test", "password");
-    }
-
-    public void Play()
-    {
-         SceneManager.LoadScene("Game");
     }
 }

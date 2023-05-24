@@ -2811,7 +2811,7 @@ GameObject:
   - component: {fileID: 1733184403}
   - component: {fileID: 1733184402}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Bakground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2920,7 +2920,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.28951436, b: 0.735849, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.35686275, b: 0.6039216, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
