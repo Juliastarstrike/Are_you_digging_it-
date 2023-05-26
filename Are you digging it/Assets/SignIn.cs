@@ -120,7 +120,6 @@ public class SignIn : MonoBehaviour
 
     private void RegisterNewUser(string email, string password)
     {
-        Debug.Log("Starting Registration");
         status.text = "Starting Registration";
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
         {
