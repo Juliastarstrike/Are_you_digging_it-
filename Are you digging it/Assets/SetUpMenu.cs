@@ -60,15 +60,6 @@ public class SetUpMenu : MonoBehaviour
         enable_Playbutton.SetActive(true);
 	}
 
-    public void ButtonClick_Score()
-	{
-        var user = new UserInfo();
-        user.victories = int.Parse(score.text);
-
-        string jsonString = JsonUtility.ToJson(user);
-        string path = "users/" + SignIn.Instance.GetUserID;
-        FirebaseSaveManager.Instance.SaveData(path, jsonString);
-	}
     public void PlayButtonClick()
 	{
         var user = new UserInfo();
@@ -79,5 +70,16 @@ public class SetUpMenu : MonoBehaviour
         string path = "users/" + SignIn.Instance.GetUserID;
         FirebaseSaveManager.Instance.SaveData(path, jsonString);
         SceneManager.LoadScene("Game");
+	}
+    public void ButtonClick_Score()
+	{
+        FirebaseSaveManager.Instance.LoadData<UserInfo>("users/" + SignIn.Instance.GetUserID, UserLoaded);
+        
+        var user = new UserInfo();
+        user.victories = int.Parse(score.text);
+
+        string jsonString = JsonUtility.ToJson(user);
+        string path = "users/" + SignIn.Instance.GetUserID;
+        FirebaseSaveManager.Instance.SaveData(path, jsonString);
 	}
 }

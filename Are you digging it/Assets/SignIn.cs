@@ -58,8 +58,8 @@ public class SignIn : MonoBehaviour
             {
                 //User is logged in
                 //the program will remember user
-                Debug.Log(auth.CurrentUser.Email + " is logged in.");
-                UserIsSignedIn_LoadGame();
+                //Debug.Log(auth.CurrentUser.Email + " is logged in.");
+                //UserIsSignedIn_LoadGame();
             }
         });
 
@@ -88,7 +88,6 @@ public class SignIn : MonoBehaviour
             }
         });
     }
-
     public void SignInputButton()
     {
         SignInFirebase(email.text, password.text);
