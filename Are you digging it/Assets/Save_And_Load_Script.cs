@@ -32,7 +32,7 @@ public class Save_And_Load_Script : MonoBehaviour
     public void Save()
     {
         PlayerSaveData saveData = new PlayerSaveData();
-         Score_manager score_manager = canvas.GetComponent<Score_manager>();
+        Score_manager score_manager = canvas.GetComponent<Score_manager>();
     
         //Create our saveData object
         //Put our data in our object

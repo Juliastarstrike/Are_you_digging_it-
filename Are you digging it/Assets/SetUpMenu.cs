@@ -27,6 +27,9 @@ public class SetUpMenu : MonoBehaviour
     public GameObject enable_NeighbourAnswere;
     public GameObject disable_saveName;
     public GameObject enable_Playbutton;
+    public GameObject canvas;
+
+    public string test;
 
     void Start()
     {
@@ -55,7 +58,7 @@ public class SetUpMenu : MonoBehaviour
         FirebaseSaveManager.Instance.SaveData(path, jsonString);
 
         enable_NeighbourAnswere.SetActive(true);
-        NeighbourAnswere.text = "Hay!, " + user.name + " The water is is rising you need to save our village dig as deep in the earth as you can, hurry hurry HURRY!!!";
+        NeighbourAnswere.text = "Hay!, " + user.name + " The water is is rising you need to save our village dig away so mutch dirt as you can at least 1000 meter , but be carful not to drown, hurry hurry HURRY!!!";
         disable_saveName.SetActive(false);
         enable_Playbutton.SetActive(true);
 	}
@@ -73,13 +76,12 @@ public class SetUpMenu : MonoBehaviour
 	}
     public void ButtonClick_Score()
 	{
-        FirebaseSaveManager.Instance.LoadData<UserInfo>("users/" + SignIn.Instance.GetUserID, UserLoaded);
-        
         var user = new UserInfo();
-        user.victories = int.Parse(score.text);
+        Score_manager score_manager = canvas.GetComponent<Score_manager>();
 
-        string jsonString = JsonUtility.ToJson(user);
-        string path = "users/" + SignIn.Instance.GetUserID;
+        string jsonString = score_manager.score.ToString();
+
+        string path = "users/" + SignIn.Instance.GetUserID + "/victories";
         FirebaseSaveManager.Instance.SaveData(path, jsonString);
 	}
 }
