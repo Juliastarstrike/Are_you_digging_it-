@@ -7,6 +7,7 @@ using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SignIn : MonoBehaviour
 {
@@ -58,8 +59,8 @@ public class SignIn : MonoBehaviour
             {
                 //User is logged in
                 //the program will remember user
-                //Debug.Log(auth.CurrentUser.Email + " is logged in.");
-                //UserIsSignedIn_LoadGame();
+                Debug.Log(auth.CurrentUser.Email + " is logged in.");
+                UserIsSignedIn_LoadGame();
             }
         });
 
@@ -141,5 +142,10 @@ public class SignIn : MonoBehaviour
     public void DebugLogIn(int number)
     {
         SignInFirebase("test" + number + "@test.test", "password");
+    }
+
+    internal void SignOut()
+    {
+        throw new NotImplementedException();
     }
 }

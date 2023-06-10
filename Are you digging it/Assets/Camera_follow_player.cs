@@ -5,7 +5,7 @@ using UnityEngine;
 public class Camera_follow_player : MonoBehaviour
 {
     public float Followspeed = 2f;
-    public float yOffset =1f;
+    public float yOffset =0f;
     public float xOffset =1f;
     public Transform target;
     public GameObject timer_Panel;

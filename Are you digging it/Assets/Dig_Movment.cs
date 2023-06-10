@@ -8,8 +8,6 @@ public class Dig_Movment : MonoBehaviour
     {
         if (other.gameObject.tag == "DirtBlock")
         {
-            Debug.Log("test collison");
-
             Destroy(other.gameObject);
             Score_manager.instance.addPoint();
         }
