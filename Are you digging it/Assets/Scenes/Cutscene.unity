@@ -1759,6 +1759,8 @@ MonoBehaviour:
   enable_NeighbourAnswere: {fileID: 476721206}
   disable_saveName: {fileID: 186199653}
   enable_Playbutton: {fileID: 432032985}
+  canvas: {fileID: 0}
+  test: 
 --- !u!1 &1417565205
 GameObject:
   m_ObjectHideFlags: 0

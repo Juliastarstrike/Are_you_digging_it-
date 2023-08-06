@@ -30,13 +30,11 @@ public class HighScore : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene("SigIn");
+        SceneManager.LoadScene("Cutscene");
     }
 
 	public void quit()
     {
         Application.Quit();
     }
-
-	
 }

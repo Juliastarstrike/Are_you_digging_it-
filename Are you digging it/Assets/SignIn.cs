@@ -50,27 +50,28 @@ public class SignIn : MonoBehaviour
             auth = FirebaseAuth.DefaultInstance;
 
             //Check if user are logged in
-            if (auth.CurrentUser == null)
+            if (auth.CurrentUser.Email == "")
             {
                 //if not sign in anonymousely
-                AnonymouseSignIn();
+                Debug.Log("Pelle");
+                //AnonymouseSignIn();
             }
             else
             {
                 //User is logged in
                 //the program will remember user
-                Debug.Log(auth.CurrentUser.Email + " is logged in.");
-                UserIsSignedIn_LoadGame();
+                Debug.Log(auth.CurrentUser.DisplayName + " is logged in.");
+                //UserIsSignedIn_LoadGame();
             }
         });
 
     }
 
-    private void UserIsSignedIn_LoadGame()
+    /* private void UserIsSignedIn_LoadGame()
     {
-        playButton.interactable = true;
+        //playButton.interactable = true;
         SceneManager.LoadScene("Cutscene");
-    }
+    } */
 
     private void AnonymouseSignIn()
     {
@@ -85,16 +86,13 @@ public class SignIn : MonoBehaviour
                 Debug.LogFormat("User Registerd: {0} ({1})",
                     newUser.DisplayName, newUser.UserId);
 
-                playButton.interactable = true;
+                //playButton.interactable = true;
+                //UserIsSignedIn_LoadGame();
             }
         });
     }
-    public void SignInputButton()
-    {
-        SignInFirebase(email.text, password.text);
-    }
     
-    private void SignInFirebase(string email, string password)
+    public void SignInFirebase(string email, string password)
     {
         auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
         {
@@ -113,19 +111,14 @@ public class SignIn : MonoBehaviour
             }
         });
     }
-    public void RegisterButton()
-    {
-        RegisterNewUser(email.text, password.text);
-    }
 
-    private void RegisterNewUser(string email, string password)
+    public void RegisterNewUser(string email, string password)
     {
         status.text = "Starting Registration";
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
         {
             if (task.Exception != null)
             {
-                Debug.Log("are we in here?");
                 Debug.LogWarning(task.Exception);
             }
             else
@@ -134,18 +127,19 @@ public class SignIn : MonoBehaviour
                 Debug.LogFormat("User Registerd: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
 
-                playButton.interactable = true;
+                status.text = "Registration complete";
+
+                //playButton.interactable = true;
+                //UserIsSignedIn_LoadGame();
             }
         });
     }
 
-    public void DebugLogIn(int number)
-    {
-        SignInFirebase("test" + number + "@test.test", "password");
-    }
 
     internal void SignOut()
     {
-        throw new NotImplementedException();
+        auth.SignOut();
+        SceneManager.LoadScene("SigIn");
+        Debug.Log("Loggar ut???????");
     }
 }

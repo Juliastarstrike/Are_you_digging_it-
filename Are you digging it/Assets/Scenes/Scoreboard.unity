@@ -1038,9 +1038,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1197395226}
-        m_TargetAssemblyTypeName: HighScore, Assembly-CSharp
-        m_MethodName: restart
+      - m_Target: {fileID: 1203053716}
+        m_TargetAssemblyTypeName: Logout, Assembly-CSharp
+        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
