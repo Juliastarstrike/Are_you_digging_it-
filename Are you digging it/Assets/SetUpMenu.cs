@@ -76,12 +76,12 @@ public class SetUpMenu : MonoBehaviour
 	}
     public void ButtonClick_Score()
 	{
-        var user = new UserInfo();
+        /* var user = new UserInfo();
         Score_manager score_manager = canvas.GetComponent<Score_manager>();
 
         string jsonString = score_manager.score.ToString();
 
         string path = "users/" + SignIn.Instance.GetUserID + "/victories";
-        FirebaseSaveManager.Instance.SaveData(path, jsonString);
+        FirebaseSaveManager.Instance.SaveData(path, jsonString);  */
 	}
 }

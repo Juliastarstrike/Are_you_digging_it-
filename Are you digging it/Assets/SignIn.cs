@@ -135,11 +135,9 @@ public class SignIn : MonoBehaviour
         });
     }
 
-
     internal void SignOut()
     {
         auth.SignOut();
         SceneManager.LoadScene("SigIn");
-        Debug.Log("Loggar ut???????");
     }
 }
