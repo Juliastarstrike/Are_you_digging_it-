@@ -84,6 +84,6 @@ public class Timer : MonoBehaviour
         {
             player.SetActive(false);
             fixedJoystick.SetActive(false);
-            GameObject.Find("Main Camera").GetComponent<Camera_follow_player>().enabled = false;
+            GameObject.Find("Main Camera").GetComponent<camera_follow_player>().enabled = false;
         }
 }

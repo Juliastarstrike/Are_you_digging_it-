@@ -3,9 +3,8 @@ using UnityEngine;
 //This script sits on the player and updates him with the data from the database
 public class CharacterSetup : MonoBehaviour
 {
-    public Sprite[] sprites;
+/*     public Sprite[] sprites;
     SpriteRenderer spriteRenderer;
-
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -15,5 +14,5 @@ public class CharacterSetup : MonoBehaviour
 	private void UserLoaded(UserInfo user)
 	{
         gameObject.name = user.name;
-    }
+    } */
 }
