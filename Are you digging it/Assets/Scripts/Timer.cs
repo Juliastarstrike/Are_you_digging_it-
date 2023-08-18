@@ -10,15 +10,15 @@ public class Timer : MonoBehaviour
     //Win or lose
     public GameObject canvas;
     public float blockDestroydToWin = 1000;
-    public bool playerWon = false;
+    public float playerWon = 0;
 
     //timer
     float decimalTimer = 15;
     int timer;
     public TextMeshProUGUI status;
 
-    //seaRisning aned camera to move to 
-    public float Followspeed = 0.01f;
+    //seaRisning and camera to move to 
+    public float Followspeed = 30f;
     public float velocity = 0;
     public Transform lose_target;
     public Transform win_target;
@@ -28,10 +28,15 @@ public class Timer : MonoBehaviour
     //SetAtive(false)
     public GameObject player;
     public GameObject fixedJoystick;
-    
+    private Vector2 target;
 
+    private void Start() 
+    {
+        playerWon = 0;
+    }
     void Update()
     {
+        //timer countdown
         if (timer >= 0 )
         {
         //round of Timer to Int
@@ -50,7 +55,7 @@ public class Timer : MonoBehaviour
             string path = "users/" + SignIn.Instance.GetUserID + "/victories";
             FirebaseSaveManager.Instance.SaveData(path, jsonString);
 
-            SceneManager.LoadScene("Scoreboard");
+            //SceneManager.LoadScene("Scoreboard");
         }
         
         Score_manager score_manager = canvas.GetComponent<Score_manager>();
@@ -58,32 +63,48 @@ public class Timer : MonoBehaviour
         //if you win
         if (timer <= 0 && score_manager.score > blockDestroydToWin)
         {
-            playerWon = true;
             WinLoseState();
+            playerWon = 1;
+            //float step = Followspeed;
             //move sea
             //Vector3 newPos_seaL = new Vector3(win_target.position.x, win_target.position.y, 0);
             //float newpos_sea2L = Mathf.SmoothDamp(seaRisning_pos.position.y , newPos_seaL.y, ref velocity,20);
-            seaRisning_pos.position = Vector3.MoveTowards(seaRisning_pos.position, win_target.position, Followspeed);
-            camera1.position = Vector3.MoveTowards(seaRisning_pos.position, win_target.position, Followspeed);
+            //seaRisning_pos.position = Vector2.MoveTowards(seaRisning_pos.position, win_target.position, step);
+            //camera1.position = Vector2.MoveTowards(seaRisning_pos.position, win_target.position, step);
             //seaRisning_pos.position = new Vector2(seaRisning_pos.position.x, newpos_sea2L);
         }
         //if you lose
         else if(timer <= 0 && score_manager.score < blockDestroydToWin)
         {
             WinLoseState();
+            playerWon = 2;
+            //float step = Followspeed ;
+            //float lerpDuration = 10;
+            //float timeElapsed=0;
+            //float time =10;
+            
             //move sea
             /* Vector2 newPos1 = new Vector2(lose_target.position.x, lose_target.position.y);
             float newpos2 = Mathf.SmoothDamp(seaRisning_pos.position.y , newPos1.y, ref velocity,20);
             seaRisning_pos.position = new Vector2(seaRisning_pos.position.x, newpos2); */
-
-            seaRisning_pos.position = Vector3.MoveTowards(seaRisning_pos.position, lose_target.position, Followspeed);
-            camera1.position = Vector3.MoveTowards(seaRisning_pos.position, lose_target.position, Followspeed);
+            //target = new Vector2(100.0f, 100.0f);
+            //if(timeElapsed < lerpDuration)
+            //{
+                //valueToLerp = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+                //seaRisning_pos.position = Vector3.Lerp(seaRisning_pos.position, lose_target.position, time);
+                //timeElapsed += Time.deltaTime;
+            //}
+           
+            //seaRisning_pos.position = Vector3.MoveTowards(seaRisning_pos.position, lose_target.position, step * Time.deltaTime);
+            //seaRisning_pos.position = Vector2.MoveTowards(seaRisning_pos.position, target, step);
+            //camera1.position = Vector3.MoveTowards(seaRisning_pos.position, lose_target.position , step);
+            //camera1.position = Vector3.MoveTowards(seaRisning_pos.position, new Vector3(lose_target.position.x , lose_target.position.y, lose_target.position.z-1) , step);
         }
     }
         void WinLoseState()
         {
             player.SetActive(false);
             fixedJoystick.SetActive(false);
-            GameObject.Find("Main Camera").GetComponent<camera_follow_player>().enabled = false;
+            GameObject.Find("Main Camera").GetComponent<Camera_follow_player>().enabled = false;
         }
 }

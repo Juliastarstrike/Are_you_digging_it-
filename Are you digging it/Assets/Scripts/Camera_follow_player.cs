@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera_follow_player : MonoBehaviour
+public class Camera_follow_player : MonoBehaviour
 {
     //description: this script make the Main camera follow the player.
     public float Followspeed = 2f;

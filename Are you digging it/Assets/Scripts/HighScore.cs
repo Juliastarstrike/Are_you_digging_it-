@@ -2,24 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
 public class HighScore : MonoBehaviour
 {
+	//description: this script puts in users and their most resent score in a list in order of who got the highest score..
     public GameObject highScorePrefab;
 	public int numberOfScores = 10;
 
-    // Start is called before the first frame update
     void Start()
 	{
 		FirebaseSaveManager.Instance.LoadHighScoreData<UserInfo>("users", numberOfScores, LoadedAllUsers);
 	}
-
 	private void LoadedAllUsers(List<UserInfo> users)
 	{
-		//We get the list in the wrong order.
 		users.Reverse();
 
-		//Create our high score list from our data
+		//Create our high score list from the data
 		foreach (var item in users)
 		{
 			var newHighScore = Instantiate(highScorePrefab, transform);
@@ -27,7 +24,6 @@ public class HighScore : MonoBehaviour
 			newHighScore.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = item.victories.ToString();
 		}
 	}
-
     public void restart()
     {
         SceneManager.LoadScene("Cutscene");

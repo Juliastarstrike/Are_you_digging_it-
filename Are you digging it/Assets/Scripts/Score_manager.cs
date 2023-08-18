@@ -5,6 +5,7 @@ using TMPro;
 
 public class Score_manager : MonoBehaviour
 {
+    //description: this script updates the score text to how many scores the player has.
     public static Score_manager instance;
     public TextMeshProUGUI scoreText;
 
@@ -17,15 +18,9 @@ public class Score_manager : MonoBehaviour
     {
        scoreText.text = "Blocks destroyed: " + score.ToString();
     }
-
     public void addPoint()
     {
         score += 1;
         scoreText.text = "Blocks destroyed: " + score.ToString();
-    }
-
-    void Update()
-    {
-        
     }
 }

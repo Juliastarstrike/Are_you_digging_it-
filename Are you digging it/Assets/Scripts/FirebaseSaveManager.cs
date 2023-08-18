@@ -16,7 +16,6 @@ public class FirebaseSaveManager : MonoBehaviour
     public delegate void OnSaveDelegate();
 
     FirebaseDatabase db;
-
     private void Awake()
     {
         //Singleton setup
@@ -34,7 +33,7 @@ public class FirebaseSaveManager : MonoBehaviour
         db.SetPersistenceEnabled(false); //Fix data cache problems
     }
 
-    //Returns one object that we want to load from the database
+    //Returns one object that I can load from the database
     public void LoadData<T>(string path, OnLoadedDelegate<T> onLoadedDelegate)
     {
         db.RootReference.Child(path).GetValueAsync().ContinueWithOnMainThread(task =>
@@ -46,7 +45,7 @@ public class FirebaseSaveManager : MonoBehaviour
 		});
     }
 
-    //Returns one list of objects that we want to load from the database
+    //Returns one list of objects that I can load from the database
     public void LoadMultipleData<T>(string path, OnLoadedMultipleDelegate<T> onLoadedDelegate)
 	{
 		db.RootReference.Child(path).GetValueAsync().ContinueWithOnMainThread(task =>
@@ -88,7 +87,7 @@ public class FirebaseSaveManager : MonoBehaviour
             if (task.Exception != null)
                 Debug.LogWarning(task.Exception);
 
-            //Call our delegate if it's not null
+            //Call delegate if it's not null
             onSaveDelegate?.Invoke();
         });
     }
@@ -101,7 +100,7 @@ public class FirebaseSaveManager : MonoBehaviour
             if (task.Exception != null)
                 Debug.LogWarning(task.Exception);
 
-            //Call our delegate if it's not null
+            //Call delegate if it's not null
             onSaveDelegate?.Invoke();
         });
     }
@@ -120,7 +119,7 @@ public class FirebaseSaveManager : MonoBehaviour
                 amount = (int)task.Result.ChildrenCount;
             }
 
-            //Call remove on each of the data, that we want gone.
+            //Call remove on each of the data, that I want gone.
             int i = 0;
             foreach (var item in task.Result.Children)
 			{
@@ -134,7 +133,6 @@ public class FirebaseSaveManager : MonoBehaviour
             } 
         });
     }
-
     public void RemoveData(string path)
 	{
         db.RootReference.Child(path).RemoveValueAsync();

@@ -9,11 +9,9 @@ public class Logout : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(ButtonClicked);
     }
-
 	public void ButtonClicked()
 	{
         //Call the firebase singleton and let it handle logout.
         SignIn.Instance.SignOut();
-        Debug.Log("Loggar ut");
 	}
 }
